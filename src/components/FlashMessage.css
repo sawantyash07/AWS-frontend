@@ -1,0 +1,26 @@
+.flash-message {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  padding: 12px 24px;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+  min-width: 300px;
+}
+
+.flash-message.success {
+  background-color: #238636; /* GitHub success green */
+}
+
+.flash-message.error {
+  background-color: #da3633; /* GitHub error red */
+}
+
+.flash-message.info {
+  background-color: #1f6feb; /* GitHub info blue */
+}

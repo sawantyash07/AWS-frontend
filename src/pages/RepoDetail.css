@@ -1,0 +1,122 @@
+.repo-detail-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.repo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.repo-title-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.repo-title-section h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #58a6ff;
+}
+
+.visibility-badge {
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  border: 1px solid #30363d;
+  color: #8b949e;
+  text-transform: capitalize;
+}
+
+.repo-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background-color: #21262d;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  color: #c9d1d9;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.action-btn:hover {
+  background-color: #30363d;
+  border-color: #8b949e;
+}
+
+.repo-tabs {
+  display: flex;
+  border-bottom: 1px solid #30363d;
+  margin-bottom: 24px;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  color: #c9d1d9;
+  text-decoration: none;
+  font-size: 0.9rem;
+  position: relative;
+  cursor: pointer;
+}
+
+.tab.active {
+  font-weight: 600;
+  color: #f0f6fc;
+}
+
+.tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #f78166;
+}
+
+.commit-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  background-color: rgba(255, 255, 255, 0.01);
+}
+
+.commit-info h3 {
+  margin: 0 0 4px 0;
+  font-size: 1rem;
+}
+
+.commit-info p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #8b949e;
+}
+
+.hash {
+  font-family: monospace;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: #8b949e;
+  font-size: 0.85rem;
+}
