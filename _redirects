@@ -1,2 +1,2 @@
-/api/*  http://3.109.60.242:5000/api/:splat  200
+/api/*  https://aws-backend-a3fc.onrender.com/api/:splat  200
 /*      /index.html  200

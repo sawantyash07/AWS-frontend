@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "http://3.109.60.242:5000/api/:path*"
+      "destination": "https://aws-backend-a3fc.onrender.com/api/:path*"
     },
     {
       "source": "/(.*)",

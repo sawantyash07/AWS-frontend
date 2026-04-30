@@ -32,7 +32,7 @@ This is the frontend dashboard for the Custom Version Control System (VCS). It a
     ```
 
 3.  **Configure Backend**:
-    Ensure the [Backend](https://github.com/sawantyash07/AWS-backend) is running on `http://3.109.60.242:5000`.
+    Ensure the [Backend](https://github.com/sawantyash07/AWS-backend) is running on `https://aws-backend-a3fc.onrender.com`.
 
 4.  **Start the development server**:
     ```bash

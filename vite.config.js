@@ -7,9 +7,9 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://3.109.60.242:5000',
+        target: 'https://aws-backend-a3fc.onrender.com',
         changeOrigin: true,
-        secure: false,
+        secure: true,
       },
     },
   },
