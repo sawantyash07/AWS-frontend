@@ -16,7 +16,7 @@ const IssueDetail = ({ setFlash }) => {
 
   const fetchIssue = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/issue/${id}`);
+      const res = await axios.get(`http://3.109.60.242:5000/api/issue/${id}`);
       setIssue(res.data);
     } catch (err) {
       console.error("Failed to fetch issue", err);
@@ -30,7 +30,7 @@ const IssueDetail = ({ setFlash }) => {
     if (!commentText.trim()) return;
 
     try {
-      await axios.post(`http://localhost:5000/api/issue/${id}/comment`, { text: commentText });
+      await axios.post(`http://3.109.60.242:5000/api/issue/${id}/comment`, { text: commentText });
       setCommentText('');
       setFlash({ message: "Comment added!", type: "success" });
       fetchIssue();

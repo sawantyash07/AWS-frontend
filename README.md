@@ -32,7 +32,7 @@ This is the frontend dashboard for the Custom Version Control System (VCS). It a
     ```
 
 3.  **Configure Backend**:
-    Ensure the [Backend](https://github.com/sawantyash07/VCS-Backend) (link placeholder) is running on `http://localhost:5000`.
+    Ensure the [Backend](https://github.com/sawantyash07/AWS-backend) is running on `http://3.109.60.242:5000`.
 
 4.  **Start the development server**:
     ```bash
@@ -47,7 +47,7 @@ This is the frontend dashboard for the Custom Version Control System (VCS). It a
 ## 🌐 Related Repositories
 
 - [VCS CLI](https://github.com/sawantyash07/VCS-CLI) (link placeholder)
-- [VCS Backend](https://github.com/sawantyash07/VCS-Backend) (link placeholder)
+- [VCS Backend](https://github.com/sawantyash07/AWS-backend)
 
 ---
 Developed by Yash Sawant.

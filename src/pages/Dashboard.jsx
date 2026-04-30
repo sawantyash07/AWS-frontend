@@ -4,7 +4,7 @@ import { Search } from 'lucide-react';
 import { motion } from 'framer-motion';
 import './Dashboard.css';
 
-const API_BASE = "http://localhost:5000/api/repo";
+const API_BASE = "http://3.109.60.242:5000/api/repo";
 
 const Dashboard = () => {
   const [repos, setRepos] = useState([]);

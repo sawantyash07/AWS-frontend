@@ -27,7 +27,7 @@ export const AuthProvider = ({ children }) => {
     try {
       // Assuming we have an endpoint like /api/auth/user to get current user
       // If not, we can use the token to identify
-      const res = await axios.get('http://localhost:5000/api/auth/me'); 
+      const res = await axios.get('http://3.109.60.242:5000/api/auth/me'); 
       setUser(res.data.user);
     } catch (err) {
       console.error("Failed to fetch user", err);

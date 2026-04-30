@@ -26,7 +26,7 @@ const Login = ({ setFlash }) => {
     }
 
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/login', formData);
+      const res = await axios.post('http://3.109.60.242:5000/api/auth/login', formData);
       login(res.data.token, res.data.user);
       setFlash({ message: "Login successful!", type: "success" });
       navigate('/dashboard');

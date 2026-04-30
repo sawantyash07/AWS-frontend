@@ -53,7 +53,7 @@ const Signup = ({ setFlash }) => {
     }
 
     try {
-      await axios.post('http://localhost:5000/api/auth/signup', formData);
+      await axios.post('http://3.109.60.242:5000/api/auth/signup', formData);
       setFlash({ message: "Signup successful! Please login.", type: "success" });
       navigate('/login');
     } catch (err) {
