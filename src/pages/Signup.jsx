@@ -15,12 +15,7 @@ const Signup = ({ setFlash }) => {
     if (!formData.email) newErrors.email = "Email is required";
     else if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = "Email is invalid";
     if (!formData.password) newErrors.password = "Password is required";
-    else {
-      const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-      if (!strongPasswordRegex.test(formData.password)) {
-        newErrors.password = "Password must be at least 8 characters long, include uppercase, lowercase, a number, and a special character.";
-      }
-    }
+    else if (formData.password.length < 4) newErrors.password = "Password must be at least 4 characters long";
     return newErrors;
   };
 
@@ -33,14 +28,12 @@ const Signup = ({ setFlash }) => {
       return;
     }
 
-    const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-    
-    if (strongPasswordRegex.test(password)) {
-      setPasswordStrength({ label: 'Strong', color: '#238636', width: '100%' }); // Green
-    } else if (password.length >= 6) {
-      setPasswordStrength({ label: 'Medium', color: '#58a6ff', width: '66%' }); // Blue
+    if (password.length >= 8) {
+      setPasswordStrength({ label: 'Good', color: '#238636', width: '100%' }); 
+    } else if (password.length >= 4) {
+      setPasswordStrength({ label: 'Simple', color: '#58a6ff', width: '50%' }); 
     } else {
-      setPasswordStrength({ label: 'Weak', color: '#f85149', width: '33%' }); // Red
+      setPasswordStrength({ label: 'Too short', color: '#f85149', width: '25%' }); 
     }
   };
 
