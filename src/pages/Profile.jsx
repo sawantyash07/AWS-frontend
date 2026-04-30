@@ -18,7 +18,7 @@ const Profile = ({ setFlash }) => {
 
   const fetchProfile = async () => {
     try {
-      const res = await axios.get(`http://3.109.60.242:5000/api/user/${user.username}`);
+      const res = await axios.get(`/api/user/${user.username}`);
       setProfile(res.data);
     } catch (err) {
       console.error("Failed to fetch profile", err);
@@ -28,7 +28,7 @@ const Profile = ({ setFlash }) => {
   const handleDelete = async () => {
     if (window.confirm("Are you sure you want to delete your account?")) {
       try {
-        await axios.delete('http://3.109.60.242:5000/api/user/profile');
+        await axios.delete('/api/user/profile');
         setFlash({ message: "Account deleted.", type: "info" });
         logout();
       } catch (err) {

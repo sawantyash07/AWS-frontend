@@ -17,13 +17,13 @@ const RepoDetail = ({ setFlash }) => {
 
   const fetchRepoData = async () => {
     try {
-      const repoRes = await axios.get(`http://3.109.60.242:5000/api/repo/${id}`);
+      const repoRes = await axios.get(`/api/repo/${id}`);
       setRepo(repoRes.data);
       
-      const commitsRes = await axios.get(`http://3.109.60.242:5000/api/repo/commits/${repoRes.data.name}`);
+      const commitsRes = await axios.get(`/api/repo/commits/${repoRes.data.name}`);
       setCommits(commitsRes.data);
       
-      const issuesRes = await axios.get(`http://3.109.60.242:5000/api/issue/repo/${repoRes.data.name}`);
+      const issuesRes = await axios.get(`/api/issue/repo/${repoRes.data.name}`);
       setIssues(issuesRes.data);
     } catch (err) {
       console.error("Failed to fetch repo data", err);
@@ -34,7 +34,7 @@ const RepoDetail = ({ setFlash }) => {
 
   const toggleStar = async () => {
     try {
-      const res = await axios.post(`http://3.109.60.242:5000/api/repo/${id}/star`);
+      const res = await axios.post(`/api/repo/${id}/star`);
       setFlash({ message: res.data.message, type: "success" });
       fetchRepoData();
     } catch (err) {
