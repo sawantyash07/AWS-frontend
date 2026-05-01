@@ -1,4 +1,5 @@
-// Use environment variable for API URL with a fallback to the relative proxy path
-const API_BASE_URL = import.meta.env.VITE_API_URL || "/api";
+// Ensure the API URL includes the /api prefix
+const base = import.meta.env.VITE_API_URL || "";
+const API_BASE_URL = base ? `${base.replace(/\/$/, "")}/api` : "/api";
 
 export default API_BASE_URL;
