@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
+import { useAuth } from '../context/AuthContext';
+import API_BASE_URL from '../config';
 import './Auth.css';
 
 const Signup = ({ setFlash }) => {
@@ -8,6 +10,7 @@ const Signup = ({ setFlash }) => {
   const [errors, setErrors] = useState({});
   const [passwordStrength, setPasswordStrength] = useState({ label: '', color: '', width: '0%' });
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const validate = () => {
     let newErrors = {};
@@ -46,7 +49,8 @@ const Signup = ({ setFlash }) => {
     }
 
     try {
-      await axios.post('/api/auth/signup', formData);
+      const res = await axios.post(`${API_BASE_URL}/auth/signup`, formData);
+      login(res.data.token, res.data.user);
       setFlash({ message: "Signup successful! Please login.", type: "success" });
       navigate('/login');
     } catch (err) {

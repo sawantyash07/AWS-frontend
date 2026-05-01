@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import API_BASE_URL from '../config';
 import { useAuth } from '../context/AuthContext';
 import { Mail, Calendar, Trash2, Edit3, Star, Users, Layout, MapPin, Link as LinkIcon } from 'lucide-react';
 import Heatmap from '../components/Heatmap';
@@ -18,7 +19,7 @@ const Profile = ({ setFlash }) => {
 
   const fetchProfile = async () => {
     try {
-      const res = await axios.get(`/api/user/${user.username}`);
+      const res = await axios.get(`${API_BASE_URL}/user/${user.username}`);
       setProfile(res.data);
     } catch (err) {
       console.error("Failed to fetch profile", err);
@@ -28,7 +29,7 @@ const Profile = ({ setFlash }) => {
   const handleDelete = async () => {
     if (window.confirm("Are you sure you want to delete your account?")) {
       try {
-        await axios.delete('/api/user/profile');
+        await axios.delete(`${API_BASE_URL}/user/profile`);
         setFlash({ message: "Account deleted.", type: "info" });
         logout();
       } catch (err) {

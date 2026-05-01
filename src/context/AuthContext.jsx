@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
 import axios from 'axios';
+import API_BASE_URL from '../config';
 
 const AuthContext = createContext();
 
@@ -27,7 +28,7 @@ export const AuthProvider = ({ children }) => {
     try {
       // Assuming we have an endpoint like /api/auth/user to get current user
       // If not, we can use the token to identify
-      const res = await axios.get('/api/auth/me'); 
+      const res = await axios.get(`${API_BASE_URL}/auth/me`); 
       setUser(res.data.user);
     } catch (err) {
       console.error("Failed to fetch user", err);

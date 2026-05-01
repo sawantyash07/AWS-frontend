@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
+import API_BASE_URL from '../config';
 import './Auth.css';
 
 const Login = ({ setFlash }) => {
@@ -26,7 +27,7 @@ const Login = ({ setFlash }) => {
     }
 
     try {
-      const res = await axios.post('/api/auth/login', formData);
+      const res = await axios.post(`${API_BASE_URL}/auth/login`, formData);
       login(res.data.token, res.data.user);
       setFlash({ message: "Login successful!", type: "success" });
       navigate('/dashboard');

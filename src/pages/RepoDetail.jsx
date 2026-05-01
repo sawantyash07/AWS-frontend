@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
+import API_BASE_URL from '../config';
 import { GitBranch, GitCommit, AlertCircle, Star, Settings, Trash2 } from 'lucide-react';
 import './RepoDetail.css';
 
@@ -17,13 +18,13 @@ const RepoDetail = ({ setFlash }) => {
 
   const fetchRepoData = async () => {
     try {
-      const repoRes = await axios.get(`/api/repo/${id}`);
+      const repoRes = await axios.get(`${API_BASE_URL}/repo/${id}`);
       setRepo(repoRes.data);
       
-      const commitsRes = await axios.get(`/api/repo/commits/${repoRes.data.name}`);
+      const commitsRes = await axios.get(`${API_BASE_URL}/repo/commits/${repoRes.data.name}`);
       setCommits(commitsRes.data);
       
-      const issuesRes = await axios.get(`/api/issue/repo/${repoRes.data.name}`);
+      const issuesRes = await axios.get(`${API_BASE_URL}/issue/repo/${repoRes.data.name}`);
       setIssues(issuesRes.data);
     } catch (err) {
       console.error("Failed to fetch repo data", err);
@@ -34,7 +35,7 @@ const RepoDetail = ({ setFlash }) => {
 
   const toggleStar = async () => {
     try {
-      const res = await axios.post(`/api/repo/${id}/star`);
+      const res = await axios.post(`${API_BASE_URL}/repo/${id}/star`);
       setFlash({ message: res.data.message, type: "success" });
       fetchRepoData();
     } catch (err) {

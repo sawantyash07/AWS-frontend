@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import API_BASE_URL from '../config';
 import { AlertCircle, MessageSquare, Send } from 'lucide-react';
 import './IssueDetail.css';
 
@@ -16,7 +17,7 @@ const IssueDetail = ({ setFlash }) => {
 
   const fetchIssue = async () => {
     try {
-      const res = await axios.get(`/api/issue/${id}`);
+      const res = await axios.get(`${API_BASE_URL}/issue/${id}`);
       setIssue(res.data);
     } catch (err) {
       console.error("Failed to fetch issue", err);
@@ -30,7 +31,7 @@ const IssueDetail = ({ setFlash }) => {
     if (!commentText.trim()) return;
 
     try {
-      await axios.post(`/api/issue/${id}/comment`, { text: commentText });
+      await axios.post(`${API_BASE_URL}/issue/${id}/comment`, { text: commentText });
       setCommentText('');
       setFlash({ message: "Comment added!", type: "success" });
       fetchIssue();

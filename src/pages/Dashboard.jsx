@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import API_BASE_URL from '../config';
 import { Search } from 'lucide-react';
 import { motion } from 'framer-motion';
 import './Dashboard.css';
 
-const API_BASE = "/api/repo";
+const API_BASE = `${API_BASE_URL}/repo`;
 
 const Dashboard = () => {
   const [repos, setRepos] = useState([]);
